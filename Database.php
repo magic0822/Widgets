@@ -12,6 +12,7 @@ class DB extends SQLite3
     {
         $this->open('widgets.db');
     }
+
 }
 
 $db = new DB();
@@ -20,6 +21,7 @@ CREATE TABLE IF NOT EXISTS `widget_order`(
       order_id INT unsigned PRIMARY KEY NOT NULL,
       quantity INT unsigned NOT NULL,
       color VARCHAR(10) NOT NULL,
+      tyoe VARCHAR(20) NOT NULL,
       date_needed INT unsigned NOT NULL,
       create_date INT unsigned NOT NULL
     )
