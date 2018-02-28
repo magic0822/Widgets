@@ -6,7 +6,7 @@
  * Time: 7:39 PM
  */
 ini_set('display_errors', 1);
-require 'Model.class.php';
+require './DB/Model.class.php';
 
 //filter user inputs
 function escapeData($data)
