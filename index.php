@@ -22,25 +22,32 @@ $date = strtotime($_POST['date']);
 $type = escapeData($_POST['type']);
 $create = time();
 
+$errorMSG = '';
 //validation for null inputs
 if (empty($quantity) || empty($date)) {
-    print 'Some content is missing.';
-    die();
+    $errorMSG = "<h3>Some contents are missing!</h3>";
+    return $errorMSG;
 }
 //validation for date of needed
-if(($date - time())<604800){
-    print 'The date format is either incorrect or not valid, please try again.';
-    die();
+if (($date - time()) < 604800) {
+    $errorMSG = "<h3>The date format is either incorrect or not valid, please try again.</h3>";
+    return $errorMSG;
+}
+//validation for quantity format
+if (!(floor($quantity) == $quantity)) {
+    $errorMSG = "<h3>Quantity must be an integer.</h3>";
+    return $errorMSG;
 }
 
 //save data to database
 $db = new Model();
-$res = $db->createData($orderID,$quantity,$color,$type,$date,$create);
+$res = $db->createData($orderID, $quantity, $color, $type, $date, $create);
 if ($res) {
-    print 'Your order has been placed, Order ID is '.$orderID.'.';
-    print '\n';
+    $msg = 'Your order has been placed, Order ID is ' . $orderID . '.';
+    return $msg;
 } else {
-    print 'Something went wrong, please try again later!';
+    $msg = 'Something went wrong, please try again later!';
+    return $msg;
 }
 
 //$res = $db->readData();
