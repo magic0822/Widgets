@@ -12,7 +12,7 @@ class Model extends SQLite3
 //    auto open database
     public function __construct()
     {
-        $this->open('widgets.db');
+        $this->open('./DB/widgets.db');
     }
 
 //    insert new line to database
