@@ -6,13 +6,14 @@
  * Time: 10:10 PM
  * Model class handle the database updates
  */
+ini_set('display_errors', 1);
 
 class Model extends SQLite3
 {
 //    auto open database
     public function __construct()
     {
-        $this->open('./DB/widgets.db');
+        $this->open('widgets.db');
     }
 
 //    insert new line to database

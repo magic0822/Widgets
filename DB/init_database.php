@@ -5,9 +5,9 @@
  * Date: 2/26/18
  * Time: 7:40 PM
  */
+ini_set('display_errors', 1);
 
 require 'Model.class.php';
-
 $db = new Model();
 $create_tale =<<<EOF
 CREATE TABLE IF NOT EXISTS `widget_order`(
@@ -23,3 +23,4 @@ $res = $db->exec($create_tale);
 if (!$res) {
     echo $db->lastErrorMsg();
 }
+
