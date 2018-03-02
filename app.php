@@ -5,7 +5,7 @@
  * Date: 2/26/18
  * Time: 7:39 PM
  */
-ini_set('display_errors', 1);
+
 require './DB/Model.class.php';
 
 try {
